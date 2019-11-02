@@ -25,7 +25,7 @@ function ProjectTeam() {
     return (
         <div className="center-align container">
             <div className="container section.">
-                <h4>ProjectTeam</h4>
+                <h4>Project Team</h4>
             </div>  
             <Members/>
         </div>
