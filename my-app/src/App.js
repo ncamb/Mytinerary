@@ -17,9 +17,8 @@ function App() {
         <Route exact path='/' component={Landpagebody} />
         <Route path='/Login' component={Login} />
         <Route path='/Createaccount' component={Createaccount} />
-        <Route  path='/Landpbody2' component={Landpbody2} />
-        <Route path='/ProjectTeam' component={ProjectTeam}/>
-
+        <Route path='/Landpbody2' component={Landpbody2} />
+        <Route path='/ProjectTeam' component={ProjectTeam} />
         <Footer />
       </div>
     </BrowserRouter>

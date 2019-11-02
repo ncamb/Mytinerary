@@ -16,7 +16,6 @@ function Imgcard(props) {
                 </div>
             </div>
         </div>
-
     );
 }
 
@@ -25,18 +24,18 @@ function Ly1() {
         <div className="carousel-item white">
             <div className="row">
                 <div className=" col s6">
-                    <Imgcard  url='https://www.vuelaviajes.com/wp-content/2018/10/Nueva-York.jpg' name="New York"/>
+                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Nueva-York.jpg' name="New York" />
                 </div>
                 <div className=" col s6">
-                    <Imgcard  url='https://www.vuelaviajes.com/wp-content/2018/10/Londres-UK.jpg' name="London"/>
+                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Londres-UK.jpg' name="London" />
                 </div>
             </div>
             <div className="row">
                 <div className=" col s6">
-                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Paris.jpg'name='Paris'/>
+                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Paris.jpg' name='Paris' />
                 </div>
                 <div className=" col s6">
-                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Tokio.jpg'name='Tokio' />
+                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Tokio.jpg' name='Tokio' />
                 </div>
             </div>
         </div>
@@ -47,18 +46,18 @@ function Ly2() {
         <div className="carousel-item white">
             <div className="row">
                 <div className=" col s6">
-                    <Imgcard  url='https://www.vuelaviajes.com/wp-content/2018/10/Hong-Kong.jpg' name="Hong Kong"/>
+                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Hong-Kong.jpg' name="Hong Kong" />
                 </div>
                 <div className=" col s6">
-                    <Imgcard  url='https://www.vuelaviajes.com/wp-content/2018/10/Los-Angeles-1.jpg' name="Los Angeles"/>
+                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Los-Angeles-1.jpg' name="Los Angeles" />
                 </div>
             </div>
             <div className="row">
                 <div className=" col s6">
-                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Singapur-1.jpg'name='Singapur'/>
+                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Singapur-1.jpg' name='Singapur' />
                 </div>
                 <div className=" col s6">
-                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Chicago.jpg'name='Chicago' />
+                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Chicago.jpg' name='Chicago' />
                 </div>
             </div>
         </div>
@@ -69,18 +68,18 @@ function Ly3() {
         <div className="carousel-item white">
             <div className="row">
                 <div className=" col s6">
-                    <Imgcard  url='https://www.vuelaviajes.com/wp-content/2018/10/Pekin.jpg' name="Pekin"/>
+                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Pekin.jpg' name="Pekin" />
                 </div>
                 <div className=" col s6">
-                    <Imgcard  url='https://www.vuelaviajes.com/wp-content/2018/10/Bruselas.jpg' name="Bruselas"/>
+                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2018/10/Bruselas.jpg' name="Bruselas" />
                 </div>
             </div>
             <div className="row">
                 <div className=" col s6">
-                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2019/08/Bangkok-ciudad.jpg'name='Bangkok'/>
+                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2019/08/Bangkok-ciudad.jpg' name='Bangkok' />
                 </div>
                 <div className=" col s6">
-                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2019/08/Atenas.jpg'name='Atenas' />
+                    <Imgcard url='https://www.vuelaviajes.com/wp-content/2019/08/Atenas.jpg' name='Atenas' />
                 </div>
             </div>
         </div>
@@ -88,11 +87,10 @@ function Ly3() {
 }
 function Carrousel() {
     return (
-
         <div className="carousel carousel-slider center">
-                <Ly1 />
-                <Ly2 />
-                <Ly3 />
+            <Ly1 />
+            <Ly2 />
+            <Ly3 />
         </div>
     );
 }
@@ -108,16 +106,10 @@ function Landpbody2() {
             </div>
             <div>
                 <h5 className="left-align">Popular Mytineraries</h5>
-
             </div>
             <Carrousel />
-
-
-
-
         </div>
     );
 
 }
-
 export default Landpbody2
