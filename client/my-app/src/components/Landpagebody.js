@@ -12,7 +12,7 @@ function Startbrowing() {
           <h3 className="grey-text text-darken-4"> Strat browsing</h3>
         </div>
         <div className="container">
-          <img className="responsive-img " width="40%" src={imgcircright} alt="logo" />
+        <a href="/cities"> <img className="responsive-img " width="40%" src={imgcircright} alt="logo" /></a>
         </div>
       </div>
     </div>
