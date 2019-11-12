@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Landpagebody from './components/Landpagebody';
 import Login from './components/Login';
@@ -9,8 +10,12 @@ import Header from './components/Header';
 import ProjectTeam from './components/ProjectTeam';
 import Cities from './components/Cities';
 
+import store from './redux/store';
+
+
 function App() {
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <div className="App">
         <Header />
@@ -23,6 +28,7 @@ function App() {
         <Footer />
       </div>
     </BrowserRouter>
+    </Provider>
   );
 }
 

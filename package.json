@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "client":"cd client/my-app && npm start",
+    "client": "cd client/my-app && npm start",
     "server": "nodemon server.js ",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
@@ -16,7 +16,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.7.7",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"

@@ -15,7 +15,8 @@ app.use(cors());
 app.use(express.json());
 
 //routes
-app.use('/test',require('./routes'));  
+app.use('/cities',require('./citiesroutes'));  
+app.use('/itineraries',require('./itinerariesroutes'));  
 
 //static files
 
