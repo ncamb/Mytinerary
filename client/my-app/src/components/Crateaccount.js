@@ -1,7 +1,4 @@
 import React from 'react';
-import Searchbar from './Searchbar';
-import Dialog from '@material-ui/core/Dialog';
-import Button from '@material-ui/core/Button';
 
 
 
@@ -10,7 +7,6 @@ function Createaccount() {
     return (
         <div className="center-align container">
             <div className="container section.">
-               <CustomizedDialogs/>
             </div>
             <div className="container">
                 <div className="selection">
