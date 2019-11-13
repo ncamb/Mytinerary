@@ -11,11 +11,6 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import IconButton from '@material-ui/core/IconButton';
 import CircularProgress from '@material-ui/core/CircularProgress';
-// import { withRouter } from 'react-router-dom';
-
-
-
-
 
 
 class Cities extends Component {
@@ -23,7 +18,7 @@ class Cities extends Component {
         super(props)
         this.state = {
             filter: "",
-            click:""
+            click: ""
 
         }
         this.handleChange = this.handleChange.bind(this);
@@ -58,8 +53,6 @@ class Cities extends Component {
 
     componentDidMount() {
         this.props.getCities();
-
-
     }
 
     handleChange = (e) => {
@@ -67,12 +60,10 @@ class Cities extends Component {
         console.log(e.target.value);
         const { value } = e.target;
         this.setState({
-
             filter: value
-
         });
     }
-   
+
 
     render() {
 
@@ -90,7 +81,7 @@ class Cities extends Component {
                             onChange={this.handleChange}
                             value={this.state.filter}
                         />
-                        <IconButton type="submit" aria-label="search">
+                        <IconButton aria-label="search">
                             <SearchIcon />
                         </IconButton>
                     </Paper>
@@ -102,18 +93,12 @@ class Cities extends Component {
                         <div className="container">
                             <div>
                                 {
-
-
-
                                     cities.filter(n => regex.test(n.name)).map(cities => {
                                         return (
                                             <div key={cities._id} className="card-panel white">
                                                 <h5 > {cities.name}</h5>
                                                 <Itinerary name={cities.name} />
                                             </div>
-                                            //     <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
-                                            //     <h1>hola</h1>
-                                            //   </Dialog>
                                         )
                                     })
                                 }

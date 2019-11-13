@@ -1,10 +1,9 @@
 import axios from 'axios';
 import { GET_CITIES, CITIES_LOADING} from './types';
-// import { tokenConfig } from './authActions';
-// import { returnErrors } from './errorActions';
+
 
 export const getCities =  () => dispatch => {
-  dispatch(setCitiesLoading());
+  dispatch(setCitiesLoading());//solo para ejecutar el loading
    axios
      .get('http://localhost:4000/cities')
     .then(res =>
