@@ -5,7 +5,7 @@ import imgfooter from '../img/homeIcon.png';
 
 function Footer() {
     return (
-        <footer className="page-footers white">
+        <footer className="page-footers white ">
             <div className="center-align section">
                 <a href="/"><img className="responsive-img" width="10%" src={imgfooter} alt="logo" /></a>
             </div>

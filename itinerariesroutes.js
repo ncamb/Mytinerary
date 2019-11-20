@@ -9,8 +9,16 @@ router.get('/',async(req,res)=>{
 
 router.get('/:name',async(req,res)=>{
      let cityRequested = req.params.name;
-    const Itineraries = await Itinerary.find({ hashtags: cityRequested });
+    const Itineraries = await Itinerary.find({  city: cityRequested });
     res.json(Itineraries);
 });
+
+router.post('/',async(req,res)=>{
+    const { name, city,username,userphoto,rating,duration,price,hashtags}=req.body;
+    const itinerary= new Itinerary({name, city,username,userphoto,rating,duration,price,hashtags});
+    await itinerary.save();
+    res.json('Itinerary saved');
+
+})
 
 module.exports = router;

@@ -1,15 +1,15 @@
 import axios from 'axios';
-import { GET_ITINERARIES, ITINERARIES_LOADING} from './types';
+import { GET_ACTIVITIES, ITINERARIES_LOADING} from './types';
 // import { tokenConfig } from './authActions';
 // import { returnErrors } from './errorActions';
 
-export const getItineraries =  () => dispatch=> {
-  dispatch(setItinerariesLoading());
+export const getActivities =  () => dispatch=> {
+  dispatch(setActivitiesLoading());
     axios
-     .get('http://localhost:4000/itineraries/')
+     .get('http://localhost:4000/activities/')
     .then(res =>
       dispatch({
-        type: GET_ITINERARIES,
+        type: GET_ACTIVITIES,
         payload: res.data
       })
     )
@@ -18,13 +18,13 @@ export const getItineraries =  () => dispatch=> {
     // );
 };
 
-export const getItinerariesbycity =  name =>  (dispatch)=> {
-  dispatch(setItinerariesLoading());
+export const getActivitiesbytitle =  name =>  (dispatch)=> {
+  dispatch(setActivitiesLoading());
    axios
-     .get(`http://localhost:4000/itineraries/${name}`)
+     .get(`http://localhost:4000/activities/${name}`)
     .then(res =>
       dispatch({
-        type: GET_ITINERARIES,
+        type: GET_ACTIVITIES,
         payload: res.data
       })
     )
@@ -33,7 +33,7 @@ export const getItinerariesbycity =  name =>  (dispatch)=> {
     // );
 };
 
-export const setItinerariesLoading = () => {
+export const setActivitiesLoading = () => {
     return {
       type: ITINERARIES_LOADING
     };

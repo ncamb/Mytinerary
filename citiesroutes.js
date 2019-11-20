@@ -15,12 +15,11 @@ router.get('/',async(req,res)=>{
 });
 
 router.post('/',async(req,res)=>{
-    // const { name, country}=req.body;
-    // const city= new City({name,country});
-    // city.save();
-    // res.json('city saved');
-    console.log(req.body);
-    res.json('okidoki');
+    const { name, country}=req.body;
+    const city= new City({name,country});
+    await city.save();
+    res.json('city saved');
+
 })
 
 module.exports = router;

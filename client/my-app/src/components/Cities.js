@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { getCities } from '../redux/actions/cityaction';
 import { getItineraries } from '../redux/actions/itineraryaction';
 import PropTypes from 'prop-types';
-import Searchbar from './Searchbar';
-import Itinerary from './Itinerary'
+import Itinerary from './Itinerarywind'
 
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
@@ -23,27 +22,6 @@ class Cities extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
     }
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //         name: '',
-    //         country: '',
-    //         _id: '',
-    //         cities: []
-    //     };
-    // }
-
-    // componentDidMount() {
-    //     this.fetchcities();
-    // }
-    // fetchcities() {
-    //     fetch('http://localhost:4000/test')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             this.setState({ cities: data });
-    //         })
-    //         .catch(err => console.error(err));
-    // }
 
     static propTypes = {
         getCities: PropTypes.func.isRequired,
@@ -120,4 +98,4 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     { getCities, getItineraries }
-)(Cities);
+)(Cities);  
