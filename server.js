@@ -17,7 +17,9 @@ app.use(express.json());
 //routes
 app.use('/cities',require('./citiesroutes'));  
 app.use('/itineraries',require('./itinerariesroutes'));  
-app.use('/activities',require('./activitiesroutes'));  
+app.use('/activities',require('./activitiesroutes'));
+app.use('/users',require('./usersroutes'));
+
 
 //static files
 

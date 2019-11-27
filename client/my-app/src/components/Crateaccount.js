@@ -5,18 +5,24 @@ import Typography from '@material-ui/core/Typography';
 import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import { connect } from 'react-redux';
+import { register } from '../redux/actions/useraction';
+import { Redirect } from 'react-router-dom'
 
 class Createaccount extends Component {
     constructor() {
         super()
         this.state = {
+            redirect: false,
             username: "",
             name: "",
-            email:"",
-            imgurl:"",
-            password:"",
-            rpassword:"",
-
+            email: "",
+            imgurl: "",
+            password: "",
+            rpassword: "",
+            counrty: "",
+            msg: null,
+            val:"validate",
 
         }
         this.handleChange = this.handleChange.bind(this);
@@ -24,101 +30,150 @@ class Createaccount extends Component {
 
     handleChange = (e) => {
         e.preventDefault();
-        console.log(e.target.name);
+        console.log(e.target.id);
         const { value } = e.target;
-        const name = e.target.name;
+        const name = e.target.id;
         this.setState({
             [name]: value
         });
     }
 
+    onSubmit = e => {
+        e.preventDefault();
+        const { username, name, email, imgurl, password, rpassword } = this.state;
+        if (!username || !password || !email || !imgurl) {
+            window.M.toast({ html: 'complete all fields', classes: "red accent-4" });
+
+        }
+        else {
+            console.log(password);
+            console.log(rpassword);
+
+            if (password !== rpassword){
+                window.M.toast({ html: 'complete the password correctly', classes: "red accent-4" });
+
+            }
+            else{
+            const newUser = {
+                username,
+                name,
+                email,
+                imgurl,
+                password
+            };
+
+
+
+            this.props.register(newUser)
+            this.setState({ redirect: true });
+        }
+        }
+
+    };
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to='/Afterregister' />
+        }
+    }
+
     render() {
         return (
+
             <div className=" section " >
+                {this.renderRedirect()}
                 <Paper className=" section center-align container">
                     <Typography variant="h5">Create a new Account</Typography>
 
-                    <form autoComplete="on" className=" section center-align container">
+                    <form autoComplete="on" className=" section center-align container" onSubmit={this.onSubmit}>
                         <Grid container wrap="nowrap" spacing={4}>
                             <Grid item xs zeroMinWidth>
-
-                                <TextField
-                                    name="username"
-                                    label="User name"
-                                    margin="normal"
-                                    variant="outlined"
-                                    onChange={this.handleChange}
-                                    value={this.state.username}
-
-                                />
-                            </Grid>
-                            <Grid item xs zeroMinWidth>
-                                <TextField
-                                    name="name"
-                                    label="Name"
-                                    margin="normal"
-                                    variant="outlined"
-                                    onChange={this.handleChange}
-                                    value={this.state.name}
-                                />
+                                <div className="input-field">
+                                    <input id="username" type="text" className="validate" onChange={this.handleChange} value={this.state.id} />
+                                    <label htmlFor="username">User name</label>
+                                </div>
                             </Grid>
                         </Grid>
                         <Grid container wrap="nowrap" spacing={3}>
                             <Grid item xs zeroMinWidth>
-                                <TextField
-                                    name="email"
-                                    label="Email"
-                                    margin="normal"
-                                    variant="outlined"
-                                    onChange={this.handleChange}
-                                    value={this.state.email}
-                                />
-                            </Grid>
-                            <Grid item xs zeroMinWidth>
-                                <TextField
-                                    name="imgurl"
-                                    label="Image URL"
-                                    margin="normal"
-                                    variant="outlined"
-                                    onChange={this.handleChange}
-                                    value={this.state.imgurl}
+                                <div className="input-field">
+                                    <input id="Firtsname" type="text" className="validate" onChange={this.handleChange} value={this.state.id} />
+                                    <label htmlFor="Firtsname">Firts Name</label>
+                                </div>
 
-                                />
                             </Grid>
                         </Grid>
                         <Grid container wrap="nowrap" spacing={3}>
                             <Grid item xs zeroMinWidth>
-                                <TextField
-                                    name="password"
-                                    label="Password"
-                                    margin="normal"
-                                    variant="outlined"
-                                    type="password"
-                                    onChange={this.handleChange}
-                                    value={this.state.password}
-                                />
+                                <div className="input-field">
+                                    <input id="lastname" type="text" className="validate" onChange={this.handleChange} value={this.state.id} />
+                                    <label htmlFor="lastname">Last Name</label>
+                                </div>
                             </Grid>
+                        </Grid>
+                        <Grid container wrap="nowrap" spacing={3}>
                             <Grid item xs zeroMinWidth>
-                                <TextField
-                                    name="rpassword"
-                                    label="repeat Password"
-                                    margin="normal"
-                                    variant="outlined"
-                                    type="password"
-                                    onChange={this.handleChange}
-                                    value={this.state.rpassword}
-                                />
+                                <div className="input-field">
+                                    <input id="email" type="text"  type="email" className="validate" onChange={this.handleChange} value={this.state.id} />
+                                    <label htmlFor="email">Email</label>
+                                    <span class="helper-text" data-error="wrong" data-success="right"></span>
+                                </div>
+                            </Grid>
+                        </Grid>
+                        <Grid container wrap="nowrap" spacing={4}>
+                            <Grid item xs zeroMinWidth>
+                                <div className="input-field">
+                                    <input id="imgurl" type="text" className="validate" onChange={this.handleChange} value={this.state.id} />
+                                    <label htmlFor="imgurl">Url for image</label>
+                                </div>
+                            </Grid>
+                        </Grid>
+                        <Grid container wrap="nowrap" spacing={3}>
+                            <Grid item xs zeroMinWidth>
+                                <div className="input-field">
+                                    <input id="password" type="password" className="validate" onChange={this.handleChange} value={this.state.id} />
+                                    <label htmlFor="password">password</label>
+                                </div>
+                            </Grid>
+                        </Grid>
+                        <Grid container wrap="nowrap" spacing={3}>
+                            <Grid item xs zeroMinWidth>
+                                <div className="input-field">
+                                    <input id="rpassword"type="password" className="validate" onChange={this.handleChange} value={this.state.id} />
+                                    <label htmlFor="rpassword">Repeat your password</label>
+                                </div>
+                            </Grid>
+                        </Grid>
+                        <Grid container wrap="nowrap" spacing={3}>
+                            <Grid item xs zeroMinWidth>
+                                <div>
+                                    <select id="country">
+                                        <option disabled selected value="">Country</option>
+                                        <option value="England">England</option>
+                                        <option value="France">France</option>
+                                        <option value="Germany">Germany</option>
+                                        <option value="holland">holland</option>
+                                        <option value="Ireland">Ireland</option>
+                                        <option value="Spain">Spain</option>
+                                        <option value="United State">United State</option>
+
+
+                                        }
+
+                                    </select>
+                                    <label>Materialize Select</label>
+                                </div>
                             </Grid>
                         </Grid>
                         <div className=" section center-align container">
                             <Button
                                 variant="contained"
                                 color="primary"
-
+                                type="submit"
+                                value="Submit"
                                 endIcon={<Icon>send</Icon>}
                             >
-                               Submit
-                        </Button>
+                                Submit
+                                 </Button>
 
                         </div>
 
@@ -128,4 +183,15 @@ class Createaccount extends Component {
         );
     }
 }
-export default Createaccount
+
+const mapStateToProps = state => ({
+    // isAuthenticated: state.auth.isAuthenticated,
+    // error: state.error
+});
+
+export default connect(
+    mapStateToProps,
+    { register }
+)(Createaccount);
+
+

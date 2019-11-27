@@ -21,9 +21,9 @@ export const getActivities =  () => dispatch=> {
 export const getActivitiesbytitle =  name =>  (dispatch)=> {
   dispatch(setActivitiesLoading());
    axios
-     .get(`http://localhost:4000/activities/${name}`)
-    .then(res =>
-      dispatch({
+      .get(`http://localhost:4000/activities/${name}`)
+      .then(res =>
+        dispatch({
         type: GET_ACTIVITIES,
         payload: res.data
       })
