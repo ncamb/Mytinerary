@@ -15,7 +15,8 @@ class Createaccount extends Component {
         this.state = {
             redirect: false,
             username: "",
-            name: "",
+            Firtsname: "",
+            lastname: "",
             email: "",
             imgurl: "",
             password: "",
@@ -40,7 +41,7 @@ class Createaccount extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { username, name, email, imgurl, password, rpassword } = this.state;
+        const { username, Firtsname, lastname, email, imgurl, password, rpassword } = this.state;
         if (!username || !password || !email || !imgurl) {
             window.M.toast({ html: 'complete all fields', classes: "red accent-4" });
 
@@ -56,7 +57,8 @@ class Createaccount extends Component {
             else{
             const newUser = {
                 username,
-                name,
+                Firtsname,
+                lastname,
                 email,
                 imgurl,
                 password

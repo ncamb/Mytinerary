@@ -44,7 +44,7 @@ class activitiesslider extends Component {
 }
 const mapStateToProps = state => ({
     activity: state.activity,
-    // isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.user.isAuthenticated
 });
 
 export default connect(

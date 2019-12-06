@@ -1,33 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import imgheader from '../img/MYtineraryLogo.png';
+import { connect } from 'react-redux';
+import { logout } from '../redux/actions/useraction';
+import { Link } from 'react-router-dom';
 
-//aca
-function NavBar() {
-  return (
-    <div className="white">
-      <a href="#" className="btn-floating btn-small grey pulse dropdown-trigger" data-target="dropdown1"> <i className="material-icons">account_circle</i></a>
-    </div>
-  );
+class Header extends Component {
+
+
+  render() {
+    return (
+      <div>
+        <header>
+          <div className="white">
+            <Link to="#" className="btn-floating btn-small grey dropdown-trigger" data-target="dropdown1"> <i className="material-icons">account_circle</i></Link>
+          </div>
+
+          {this.props.isAuthenticated ? (
+            <ul id="dropdown1" className="dropdown-content">
+              <li><a onClick={this.props.logout} >Logout</a> </li>
+              
+            </ul>
+          ) :
+            <ul id="dropdown1" className="dropdown-content">
+              <li><Link to="/Login">Login</Link> </li>
+              <li><Link to="/Createaccount">Create a Account</Link></li>
+            </ul>}
+
+          <div className="center-align">
+            <img src={imgheader} className="responsive-img" width="90%" alt="logo" />
+          </div>
+        </header>
+      </div>
+    );
+
+  }
 }
 
-function Header() {
-  return (
-    <div>
-      <header>
-        <NavBar />
-        <ul id="dropdown1" className="dropdown-content">
-          <li><a href="/Login">Login</a> </li>
-          <li><a href="/Createaccount">Create a Account</a></li>
-          <li className="divider"></li>
-          <li><a href="/Landpbody2">Lading page 2</a></li>
-          <li><a href="/ProjectTeam">Project Team  </a></li>
-        </ul>
-        <div className="center-align">
-          <img src={imgheader} className="responsive-img" width="90%" alt="logo" />
-        </div>
-      </header>
-    </div>
-  );
 
-}
-export default Header
+const mapStateToProps = state => ({
+  isAuthenticated: state.user.isAuthenticated
+});
+
+export default connect(
+  mapStateToProps,{logout}
+)(Header);
+

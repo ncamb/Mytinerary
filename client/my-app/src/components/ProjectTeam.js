@@ -2,7 +2,7 @@ import React from 'react';
 
 function Member(props) {
     return (
-        <div className="conteiner section">
+        <div className="card conteiner section">
             {/* <h5 className="section">{props.name}</h5> */}
             <img className="responsive-img " src={props.url} alt={props.name} />
         </div>

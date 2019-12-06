@@ -44,7 +44,7 @@ class Itinerarylist extends Component {
 
 const mapStateToProps = state => ({
     itinerary: state.itinerary,
-    // isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.user.isAuthenticated
 });
 
 export default connect(

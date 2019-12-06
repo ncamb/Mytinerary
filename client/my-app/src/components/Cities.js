@@ -90,7 +90,7 @@ class Cities extends Component {
 }
 const mapStateToProps = state => ({
     city: state.city,
-    // isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.user.isAuthenticated
 });
 
 
