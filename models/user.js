@@ -10,6 +10,7 @@ const userSchema = new Schema({
     email:{type: String},
     imgurl:{type: String, required:true},
     password:{type: String, required:true},
+    // favorites: {type: Array }
 },
 { collection : 'users' });
 

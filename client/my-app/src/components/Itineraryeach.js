@@ -9,14 +9,20 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
+import yellow from '@material-ui/core/colors/yellow';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Share';
 import Rating from '@material-ui/lab/Rating';
-import Activitiesslider from './Activitiesslider'
+import Activitiesslider from './Activitiesslider';
 import { Chip } from '@material-ui/core';
+import Coments from './Coments';
+
+
+
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 345,
+    maxWidth: 385,
   },
   media: {
     height: 0,
@@ -33,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     transform: 'rotate(180deg)',
   },
   avatar: {
-    backgroundColor: red[500],
+    // backgroundColor: red[500],
   },
   chip: {
     margin: theme.spacing(0.5),
@@ -47,6 +53,14 @@ export default function Itineraryeach2(props) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const fvcolor= yellow.A700;
+  const handleAddfv = () => {
+     fvcolor= yellow.A100;
+  }
+
+
+
   const thearray = props.hashtags
   return (
     <Card className={classes.card}>
@@ -112,8 +126,15 @@ export default function Itineraryeach2(props) {
         }
       </CardContent>
       <CardActions disableSpacing>
-      <Typography variant="body2">
-          Show Activities </Typography>
+        <IconButton 
+         
+         onClick={handleAddfv}
+        aria-label="add to favorites">
+          <FavoriteIcon  style={{ color: fvcolor }} />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -128,6 +149,7 @@ export default function Itineraryeach2(props) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Activitiesslider key={props.id} name={props.name} />
+         <Coments/>
         </CardContent>
       </Collapse>
     </Card>

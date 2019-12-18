@@ -33,6 +33,32 @@ export const getItinerariesbycity =  name =>  (dispatch)=> {
     // );
 };
 
+export const postacoment = ({ coment }) => dispatch => {
+  // Headers
+  const config = {
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  };
+  // Request body
+  const body = JSON.stringify({coment});
+  axios
+      .post('http://localhost:4000/users', body, config)
+      .then(res =>
+          dispatch({
+              type: REGISTER_SUCCESS,
+              payload: res.data
+          })
+      )
+  //   .catch(err => {
+  //     dispatch(
+  //       returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL')
+  //     );
+  //     dispatch({
+  //       type: REGISTER_FAIL
+  //     });
+  //   });
+};
 export const setItinerariesLoading = () => {
     return {
       type: ITINERARIES_LOADING
