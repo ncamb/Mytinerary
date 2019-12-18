@@ -31,7 +31,7 @@ import {
           user: action.payload
         };
       case LOGIN_SUCCESS:
-      case REGISTER_SUCCESS:
+      
         localStorage.setItem('token', action.payload.token);
         localStorage.setItem('isAuthenticated', true);
         localStorage.setItem('user', action.payload.user);
@@ -41,6 +41,7 @@ import {
           isAuthenticated: true,
           isLoading: false
         };
+        case REGISTER_SUCCESS:
       case AUTH_ERROR:
       case LOGIN_FAIL:
       case LOGOUT_SUCCESS:
